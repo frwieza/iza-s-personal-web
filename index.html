@@ -15,7 +15,7 @@ body, html {
   line-height: 1.8;
   background-color: #F5F5DC;
 }
-  /* Add this to your existing styles */
+
 .w3-beige {
     background-color: #F5F5DC; /* Beige color for the navbar when scrolling */
     color: #4B3621; /* Brown text color for the navbar */
@@ -80,6 +80,157 @@ body, html {
     min-height: 400px;
   }
 }
+
+/* Rounded buttons for HIT ME UP and To the top */
+.w3-button {
+  border-radius: 30px; /* makes the button round */
+}
+
+/* Dark Mode Colors */
+.dark-mode {
+  background-color: #2D241E !important; /* Deep Dark Brown */
+  color: #F5F5DC !important; /* Beige text */
+}
+
+.dark-mode .w3-content, .dark-mode .w3-container {
+  background-color: #2D241E !important;
+  color: #F5F5DC !important;
+}
+
+/* Adjust the Navbar in Dark Mode */
+.dark-mode .w3-beige, .dark-mode #myNavbar.w3-beige {
+  background-color: #4B3621 !important;
+  color: #F5F5DC !important;
+}
+
+.dark-mode .w3-bar-item {
+  color: #F5F5DC !important;
+}
+
+/* Adjusting cards/sections that were light-grey */
+.dark-mode .w3-light-grey {
+  background-color: #4B3621 !important;
+}
+
+/* Modal adjustment */
+.dark-mode .w3-modal {
+  background-color: rgba(0,0,0,0.9) !important;
+}
+
+.dark-mode img {
+  filter: brightness(0.8);
+  transition: 0.3s;
+}
+.dark-mode img:hover {
+  filter: brightness(1);
+}
+
+/* Fix for Progress Bars in Dark Mode */
+.dark-mode .w3-light-grey {
+  background-color: #444 !important; /* Darker track for the bar */
+}
+
+.dark-mode .w3-brown {
+  background-color: #D2691E !important; /* Brighter 'Chocolate' brown so it pops */
+  color: #F5F5DC !important; /* Ensure the percentage text is beige */
+}
+
+.dark-mode .w3-wide, .dark-mode h3, .dark-mode p {
+  color: #F5F5DC !important;
+}
+
+/* Fix for the YouTube section background */
+.dark-mode #youtubeSection {
+  background-color: #2D241E !important;
+  color: #F5F5DC !important;
+}
+
+/* Fix for the Progress Bar containers */
+.dark-mode .w3-light-grey {
+  background-color: #4B3621 !important; /* Makes the empty part of the bar dark brown */
+}
+
+/* Fix for the Progress Bar fill color */
+.dark-mode .w3-brown {
+  background-color: #D2691E !important; /* Brighter orange-brown so it stands out */
+}
+
+/* Ensure all text inside the YouTube section turns beige */
+.dark-mode #youtubeSection p {
+  color: #F5F5DC !important;
+}
+
+/* Button Hover & Dark Mode adjustments */
+.w3-button.w3-brown:hover {
+  background-color: #D2691E !important; /* Becomes a lighter orange-brown on hover */
+  color: white !important;
+}
+
+.dark-mode .w3-button.w3-brown {
+  border: 1px solid #F5F5DC; /* Adds a thin beige border in dark mode */
+}
+
+.dark-mode #searchBar {
+  background-color: #4B3621 !important;
+}
+
+.dark-mode #searchBar input {
+  background-color: #2D241E;
+  color: #F5F5DC;
+  border: 1px solid #F5F5DC !important;
+}
+
+/* Makes the text on top of images much clearer */
+.w3-display-middle span {
+    text-shadow: 2px 2px 4px rgba(0,0,0,0.7);
+    font-weight: bold;
+}
+
+/* Specifically for the beige text that was hard to see */
+.w3-text-beige {
+    color: #F5F5DC !important;
+    text-shadow: 2px 2px 8px rgba(0,0,0,1);
+}
+
+/* Fix the section headings */
+#music h3, #portfolio h3, #about h3 {
+    color: inherit; /* This makes it follow the body color automatically */
+    font-weight: bold;
+}
+
+/* Ensure clarity in Dark Mode */
+.dark-mode #music h3, 
+.dark-mode #music p {
+    color: #F5F5DC !important;
+}
+
+/* Ensure icons and text are visible in the navbar when scrolling in Dark Mode */
+.dark-mode .w3-beige, 
+.dark-mode #myNavbar.w3-beige,
+.dark-mode .w3-bar-item,
+.dark-mode .w3-bar-item i {
+    color: #F5F5DC !important; /* Forces beige color */
+}
+
+/* Hover effect for navbar items in Dark Mode */
+.dark-mode .w3-bar-item:hover {
+    background-color: #D2691E !important; /* Warm orange-brown hover */
+    color: white !important;
+}
+
+/* This makes the dark background stretch to the very edges of the screen */
+.dark-mode #about, 
+.dark-mode #portfolio, 
+.dark-mode #music, 
+.dark-mode #contact {
+    background-color: #2D241E !important;
+    max-width: 100% !important; /* Forces full width */
+}
+
+/* This keeps your text centered and neat inside that full-width dark background */
+.dark-mode .w3-content {
+    background-color: transparent !important;
+}
 </style>
 </head>
 <body>
@@ -100,6 +251,9 @@ body, html {
    onclick="toggleSearch()">
    <i class="fa fa-search"></i>
    </a>
+   <a href="javascript:void(0)" class="w3-bar-item w3-button w3-right" onclick="toggleDarkMode()">
+  <i id="dark-icon" class="fa fa-moon-o"></i>
+  </a>
   </div>
 <div id="searchBar" class="w3-bar w3-beige w3-padding" style="display:none;">
   <input
@@ -178,7 +332,7 @@ body, html {
   </div>
 </div>
 
-<!-- Second Parallax Image with Portfolio Text -->
+<!-- Second Parallax Image with Happiness Text -->
 <div class="bgimg-2 w3-display-container w3-opacity-min">
   <div class="w3-display-middle">
     <span class="w3-xxlarge w3-text- black w3-wide">HAPPINESS</span>
@@ -233,7 +387,7 @@ body, html {
   </div>
 </div>
 
-<div id="youtubeSection" style="margin:40px; display:none;">
+<div id="youtubeSection" class="w3-container w3-padding-32" style="display:none; background-color: inherit;">
   <div class="w3-row-padding w3-center">
 
   <div class="w3-col m6 s12 w3-margin-bottom">
@@ -262,14 +416,14 @@ body, html {
 </div>
 
 <!-- Container (Music Section) -->
-<div class="w3-content w3-containerw3-padding-64" id="music">
+<div class="w3-container w3-padding-64" id="music" style="background-color: inherit;">
   <h3 class="w3-center">VIBING WITH MUSIC</h3>
   <p class="w3-center"><em>Here are some of my fav playlist.<br> Click to listen it on spotifyy</em></p><br>
 </div>
 
 <!-- Spotify Embed 1 -->
 <div class="w3-container w3-padding-32">
-  <h3 class="w3-center">Listen my fav song on spotify ^^</h3>
+  <h3 class="w3-center">Listen to my fav song on spotify ^^</h3>
   <div class="w3-center">
     <iframe data-testid="embed-iframe" style="border-radius:20px" src="https://open.spotify.com/embed/track/0otRX6Z89qKkHkQ9OqJpKt?utm_source=generator" width="100%" height="352" frameBorder="0" allowfullscreen="" allow="autoplay; clipboard-write; encrypted-media; fullscreen; picture-in-picture" loading="lazy"></iframe>
   </div>
@@ -291,7 +445,7 @@ body, html {
   </div>
 </div>
 
-<!-- Fourth Parallax Image with Portfolio Text -->
+<!-- Fourth Parallax Image with Contact Text -->
 <div class="bgimg-4 w3-display-container w3-opacity-min">
   <div class="w3-display-middle">
      <span class="w3-xxlarge w3-text-beige w3-wide">CONTACT</span>
@@ -383,11 +537,16 @@ function toggleFunction() {
 <script>
 function toggleYouTube() {
   var yt = document.getElementById("youtubeSection");
+  var btn = event.currentTarget; // This identifies the button you just clicked
 
   if (yt.style.display === "none" || yt.style.display === "") {
     yt.style.display = "block";
+    btn.innerHTML = "SHOW LESS";
+    btn.style.backgroundColor = "#4B3621"; // Changes to Dark Brown when open
   } else {
     yt.style.display = "none";
+    btn.innerHTML = "LOAD MORE";
+    btn.style.backgroundColor = ""; // Goes back to original color
   }
 }
 </script>
@@ -409,6 +568,25 @@ function searchPage(keyword) {
   var text = document.body.innerText.toLowerCase();
   if (keyword.length > 2 && !text.includes(keyword.toLowerCase())) {
     alert("No matching content found 😢");
+  }
+}
+</script>
+
+<script>
+  function toggleDarkMode() {
+  var element = document.body;
+  var icon = document.getElementById("dark-icon");
+  
+  // Toggle the class on the body
+  element.classList.toggle("dark-mode");
+  
+  // Update the icon
+  if (element.classList.contains("dark-mode")) {
+    icon.classList.remove("fa-moon-o");
+    icon.classList.add("fa-sun-o");
+  } else {
+    icon.classList.remove("fa-sun-o");
+    icon.classList.add("fa-moon-o");
   }
 }
 </script>
